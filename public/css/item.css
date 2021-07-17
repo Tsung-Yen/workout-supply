@@ -1,0 +1,355 @@
+body{
+    margin:0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+nav{
+    z-index: 997;
+    position: sticky;
+    top:0px;
+}
+.navigationBar{
+    margin:0 auto;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+}
+.nav-title{
+    flex: none;
+    width: 265px;
+    font-size: 35px;
+    font-weight: 500;
+    color: rgb(94, 91, 91);
+    text-indent: 8%;
+    cursor:pointer;
+    /* background: chartreuse; */
+}
+.menber{
+    flex: auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.menber>.sign{
+    flex: none;
+    width:200px;
+    font-size: 20px;
+    text-indent: 26%;
+    font-weight: 700;
+    /* background-color: chocolate; */
+    
+}
+.menber>.cart-image{
+    flex: none;
+    font-size: 20px;
+    text-indent: 26%;
+    font-weight: 700;
+    margin-right: 25px;
+    /* background-color: rgb(91, 190, 104); */
+}
+.hr1{
+    height:1px;
+    top:56px;
+    position:sticky;
+    background: rgb(226, 217, 217);
+}
+
+.container{
+    width:1200px;
+    display:flex;
+    flex-wrap: wrap;
+    margin:0 auto;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    position:relative;
+}
+.container>.slideimg{
+    flex:none;
+    width:48%;
+    height:auto;
+    margin-right: 20px;
+}
+.slideimg>img{
+    width:100%;
+    height:100%;
+    max-height:600px;
+    border-radius: 0.5em;
+}
+
+
+.item-content{
+    flex:auto;
+    width:35%;
+    height:auto;
+}
+.item-name{
+    font-size:24px;
+    font-weight: 600;
+    color:rgb(88, 85, 85);
+}
+.item-price{
+    margin-top: 20px;
+    font-size:28px;
+    font-weight:300;
+    text-indent: 15px;
+    color:rgb(224, 123, 28);
+}
+.item-details{
+    width:auto;
+    text-indent:10px;
+    padding:10px;
+    margin-bottom: 30px;
+}
+table, td, th {
+    border: 1px solid rgb(199, 198, 198);
+    border-radius: 0.2em;
+    padding: 12px;
+}
+  
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    border: none;
+    background-color: rgb(230, 227, 227);
+    border-radius: 0.5em;
+    margin-top: -10px;
+}
+.buy{
+    display: flex;
+    margin-top: 20px;
+}
+.buy-count{
+    flex: none;
+    width:50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.remove{
+    position: relative;
+    right: 25%;
+    width:35px;
+    height:35px;
+}
+.buy-number{
+    padding: 5px;
+    font-size: 20px;
+    color:chocolate;
+}
+.add{
+    position: relative;
+    left:25%;
+    width:35px;
+    height:35px;
+}
+.buy-button{
+    font-size: 20px;
+    color:#ffffff;
+    flex: auto;
+    border-bottom-left-radius: 0.2em;
+    border-top-left-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    background: rgb(54, 130, 218);
+    border-style: none;
+}
+
+
+.hr2{
+    width:auto;
+    height:1px;
+    background: rgb(223, 213, 213);
+    margin:0 auto;
+}
+/*content*/
+.content{
+    width:1200px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 320;
+}
+/*description*/
+.content>.description{
+    margin-top: 30px;
+    color:rgb(129, 119, 119);
+    font-weight:400;
+}
+/*address*/
+.content>.address{
+    margin-top: 35px;
+}
+.content>.address>.addt{
+    font-size: 17px;
+    color:rgb(88, 85, 85);
+    font-weight:600;
+}
+.content>.address>p{
+    line-height:15px;
+    color:rgb(129, 119, 119);
+    font-weight:400;
+}
+/*transport*/
+.content>.transport{
+    margin-top: 35px;
+}
+.content>.transport>.transt{
+    font-size: 17px;
+    color:rgb(88, 85, 85);
+    font-weight:600;
+}
+.content>.transport>p{
+    margin-bottom: 10px;
+    color:rgb(129, 119, 119);
+    font-weight:400;
+}
+/*footer*/
+/*copyright最下半部*/
+footer{
+    /* margin-top:20px; */
+    width:auto;
+    text-align:center;
+    padding:30px;
+    font-size:16px;
+    color:white;
+    background-color: #757575;
+    position:sticky;
+    bottom:0;
+}
+.mask{
+    display:none;
+    height:1046px;
+    width:100%;
+    position:absolute;
+    top:0;
+    background: black;
+    opacity:0.3;
+    z-index:998;
+}
+@media(max-width:1200px){
+    .navigationBar>nav{
+        width:92%;
+    }
+    .popup_signup_form{
+        margin: 23px 35%;
+    }
+    .popup_form{
+        margin: 23px 35%;
+    }
+    .container{
+        width:92%;
+        height:auto;
+    }
+    .container>.bookingContent{
+        height:auto;
+    }
+    .container>.slideimg{
+        margin-right: 1%;
+        margin-left: 0;
+    } 
+    
+    .content{
+        width:90%;
+    } 
+    .bookui>form>.btn{
+        margin-top:-20px;
+    }
+    .mask{
+        height:1070px;
+    }
+}
+@media(max-width:910px){
+    .container{
+        width:99%;
+        height:auto;
+    }
+    .slideimg>.slide>.right{
+        position: absolute;
+        top: 50%;
+        left:40%;
+    }
+}
+@media(max-width:700px){
+    .navigationBar>nav{
+        width:94%;
+    }
+    .popup_form{
+        margin: 23px 20%;
+    }
+    .popup_signup_form{
+        margin: 23px 20%;
+    }
+    .container{
+        width:90%;
+    }
+    .container>.slideimg{
+        width:109%;
+        margin-left: -4%;
+        height:auto;
+        
+    }
+    .slideimg>.img_dot{  
+        top:94%;
+        left:20%;
+    }
+    .container>.bookingContent{
+        width:97%;
+        height:auto;
+        margin-top: 15px;
+    }
+    .slideimg>.slide>.left{
+        position: absolute;
+        top: 24%;
+        left:-2%;
+    }
+    .slideimg>.slide>.right{
+        position: absolute;
+        top: 24%;
+        left:95%;
+    }
+}
+@media(max-width:500px){
+    .popup_form{
+        margin: 23px 5%;
+    }
+    .popup_signup_form{
+        margin: 23px 5%;
+    }
+    .slideimg>.slide>.left{
+        position: absolute;
+        top: 20%;
+        left:-2%;
+    }
+    .slideimg>.slide>.right{
+        position: absolute;
+        top: 20%;
+        left:92%;
+    }
+    .slideimg>.img_dot{  
+        top:99%;
+        left:20%;
+    }
+    .img_dot>.circle{
+        width:12px;
+        height:12px;
+    }
+    .mask{
+        height:185%;
+    }
+}
+@media(max-width:440px){
+    .container>.slideimg{
+        width:109%;
+        margin-left: -4%;
+        height:auto;
+        max-height: 300px;
+    }
+}
+@media(max-width:300px){
+    .popup_form{
+        margin: 23px 2%;
+    }
+    .popup_signup_form{
+        margin: 23px 2%;
+    }
+}

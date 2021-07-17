@@ -1,0 +1,379 @@
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+nav{
+    margin:0 auto;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    z-index: 997;
+    position: sticky;
+    top:0px;
+    background-color: #ffffff;
+}
+nav>.nav-title{
+    flex: none;
+    width: 265px;
+    font-size: 35px;
+    font-weight: 500;
+    color: rgb(94, 91, 91);
+    text-indent: 8%;
+    cursor:pointer;
+    /* background: chartreuse; */
+}
+nav>.nav-men{
+    flex: none;
+    width: 190px;
+    font-size: 23px;
+    text-indent: 26%;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    z-index: 996;
+    /* background: rgb(255, 123, 0); */
+}
+nav>.nav-women{
+    flex: none;
+    width: 190px;
+    font-size: 23px;
+    text-indent: 26%;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    /* background: rgb(0, 153, 255); */
+}
+nav>.nav-supply{
+    flex: none;
+    width: 190px;
+    font-size: 23px;
+    text-indent: 26%;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    /* background: rgb(117, 12, 12); */
+}
+nav>.empty{
+    flex: auto;
+}
+nav>.instant-search{
+    flex: none;
+    position: absolute;
+    top:0px;
+    right:18%;
+    width:380px;
+}
+.instant-search>.instant-search-insert{
+    margin-top: 15px;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 9px;
+    background: #eeeeee;
+}
+.instant-search-insert>.search-spot{
+    flex-grow: 1;
+    border:none;
+    outline:none;
+    width:100%;
+    padding: 0 7px;
+    background: transparent;
+}
+.instant-search-insert>.search-button{
+    margin-right: -20px;
+    width:55px;
+    border: none;
+    z-index:996;
+    opacity: 0;
+}
+.search-png{
+    width:20px;
+    height:20px;
+    position:relative;
+    right:4%;
+}
+.instant-search-result-container{
+    max-height:250px;
+    overflow: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.instant-search-result-container li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block
+}
+.instant-search-result-container li a:hover:not(.header){
+    background: #eee;
+}
+
+nav>.menber{
+    flex: none;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+.menber>.sign{
+    flex: none;
+    width:200px;
+    font-size: 20px;
+    text-indent: 26%;
+    font-weight: 700;
+    /* background-color: chocolate; */
+    
+}
+.menber>.cart-image{
+    flex: none;
+    font-size: 20px;
+    text-indent: 26%;
+    font-weight: 700;
+    margin-left: 20px;
+    /* background-color: rgb(91, 190, 104); */
+}
+.hr{
+    height:2px;
+    top:63px;
+    position:sticky;
+    background: rgb(155, 154, 154);
+}
+
+.advertise{
+    display: flex;
+    width:auto;
+    background:rgb(13, 23, 37);
+    justify-content: center;
+}
+.advertise>img{
+    flex:none;
+    width:800px;
+    height:400px;
+}
+
+.menu{
+    margin: 0 auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(214, 214, 214);
+    /* display: none; */
+}
+.menu>.shirt{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.jacket{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.pant{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.cap{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.other{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+
+.menu>.tryall{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+    display: none;
+}
+.menu>.mars{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+    display: none;
+}
+.menu>.myprotein{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+    display: none;
+}
+.menu>.on{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+    display: none;
+}
+.menu>.protein-bar{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+    display: none;
+}
+
+
+/* 圖片方格(圖片加上文字資訊外框) */
+.container{
+    display:flex;
+    justify-content: center;
+    background-color: rgb(241, 241, 241);
+}
+.container>.part{
+    width:1250px;
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    /* background: red;  */
+}
+/*單格景點(存放圖片及文字方塊)*/
+.part>.item{
+    flex:none;
+    width:306px;
+    height:430px;
+    text-align: center;
+    /*Border*/
+    /* border:solid rgb(216, 206, 206);
+    border-width:2px; */
+    /* background-color:rgb(227, 230, 226); */
+}
+a>img{
+    width:304px;
+    height:280px;
+    margin-bottom:15px;
+}
+a>img:hover{
+    opacity: 0.8;
+}
+.item>.item-name{
+    font-size:20px;
+    margin-top: -13px;
+    color:rgb(88, 85, 85);
+    font-weight:600;
+    /* background: chartreuse; */
+   
+}
+.item>.price{
+    margin-top: -16px;
+    font-size: 20px;
+    color:rgb(156, 150, 150);
+    font-weight:400;
+}
+.item>.buy-now{
+    display: none;
+    margin: 0 auto;
+    margin-top: -12px;
+    width: 160px;
+    height:38px;
+    font-size: 22px;
+    color:rgb(255, 255, 255);
+    font-weight:400;
+    background-color: rgb(0, 0, 0);
+}
+.switch-page{
+    margin:0 auto;
+    display: flex;
+    width:1250px;
+    text-align:center;
+    justify-content: center;
+    padding:15px;
+    font-size:16px;
+}
+.switch-page>.front{
+    font-size: 20px;
+    
+    flex: none;
+    width:150px;
+    /* background-color: rgb(255, 0, 179); */
+    cursor:pointer;
+}
+.page{
+    font-size: 20px;
+    display: flex;
+    /* background-color: rgb(255, 230, 0); */
+    cursor:pointer;
+}
+.page>.number{
+    flex: none;
+    width:150px;
+    /* background-color: rgb(255, 230, 0); */
+    /*Border*/
+    border-style: none;
+    border:solid rgb(241, 240, 240);
+    border-width:0.5px;
+}
+.switch-page>.next{
+    font-size: 20px;
+    flex: none;
+    width:150px;
+    /* background-color: rgb(255, 0, 179); */
+    cursor:pointer;
+}
+
+/*copyright最下半部*/
+footer{
+    /* margin-top:20px; */
+    width:auto;
+    text-align:center;
+    padding:30px;
+    font-size:16px;
+    color:white;
+    background-color: #757575;
+    position:sticky;
+    bottom:0;
+}
+
+/*Rwd*/
+
