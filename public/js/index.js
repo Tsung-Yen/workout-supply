@@ -210,7 +210,9 @@ function label(){
     //男士專區
     let men = document.querySelector(".men");
     labelmouse(men);
-    men.addEventListener("click",()=>{});
+    men.addEventListener("click",()=>{
+        console.log("men!!");
+    });
     //女士專區
     let women = document.querySelector(".women");
     labelmouse(women);
