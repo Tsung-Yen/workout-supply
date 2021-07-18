@@ -210,9 +210,194 @@ function label(){
     //男士專區
     let men = document.querySelector(".men");
     labelmouse(men);
+    let menType = null;
+    let menFlagPress = null;
     men.addEventListener("click",()=>{
-        console.log("men!!");
+        supplyBtnPress = null;
+        womenFlagPressed = null;
+        if(menFlagPress == null){
+            menFlagPress = true;
+            part.innerHTML = "";
+            //將分類標籤換為補給品
+            let menu = document.querySelector(".menu");
+            menu.innerHTML = "";
+            let shirt = document.createElement("div");
+            shirt.textContent="男士長袖"
+            shirt.className="shirt";
+            shirt.id = "part1";
+            let jacket = document.createElement("div");
+            jacket.textContent="男士外套"
+            jacket.className="jacket";
+            jacket.id = "part2";
+            let pant = document.createElement("div");
+            pant.textContent="男士長褲"
+            pant.className="pant";
+            pant.id = "part3";
+            let shoes = document.createElement("div");
+            shoes.textContent="男士訓練鞋"
+            shoes.className="shoes";
+            shoes.id = "part4";
+            menu.append(shirt);
+            menu.append(jacket);
+            menu.append(pant);
+            menu.append(shoes);
+            let menDepartLableClick = null;
+            if(menDepartLableClick == null){
+                for(let i=1;i<=4;i++){
+                    let allPart = document.getElementById("part"+i.toString());
+                    allPart.addEventListener("click",()=>{
+                        menDepartLableClick = true;
+                        if(i == 1)menType = "longsleeve";
+                        else if(i == 2)menType = "jacket";
+                        else if(i == 3)menType = "pants";
+                        else if(i == 4)menType = "shoes";
+                        allLableClick(menType);
+                        menType = null;
+                        menDepartLableClick = null;
+                    });
+                }
+            }
+            if(menType == null)allLableClick("longsleeve");
+        }
+        function allLableClick(type){   //men&women create page function
+            part.innerHTML = "";
+            let url = "/api/itemtype/1?gender=man&type="+type;
+            fetch(url).then((res)=>res.json()).then((result)=>{
+                if(result["error"] == null){
+                    womenMaxPage = result["maxpage"];
+                    let part = document.querySelector(".part");
+                    for(let i=0;i<result["data"].length;i++){
+                        let item = document.createElement("div");
+                        item.className = "item";
+                        item.id = "item"+i.toString();
+                        let link = document.createElement("a");
+                        link.href = "/item?id="+result["data"][i]["id"];
+                        let image = document.createElement("img");
+                        image.src = result["data"][i]["image"];
+                        let itemName = document.createElement("p");
+                        itemName.className = "item-name";
+                        itemName.id = "item"+i.toString();
+                        itemName.textContent = result["data"][i]["name"];
+                        let price = document.createElement("p");
+                        price.className = "price";
+                        price.id = "price"+i.toString();
+                        price.textContent = result["data"][i]["price"];
+                        let buyNow = document.createElement("div");
+                        buyNow.className = "buy-now";
+                        buyNow.id = "buyNow"+i.toString();
+                        buyNow.textContent = "立即購買";
+                        link.append(image);
+                        item.append(link);
+                        item.append(itemName);
+                        item.append(price);
+                        item.append(buyNow);
+                        part.append(item);
+                    }
+                    //商品進滑出效果
+                    if(part != ""){
+                        let startItem = 0;
+                        let endItem = 11;
+                        if(result["data"].length < 12){
+                            endItem = result["data"].length;
+                        }
+                        for(let i=0;i<endItem;i++){
+                            let productId = document.getElementById("item"+i.toString());
+                            let buyNowButton = document.getElementById("buyNow"+i.toString());
+                            productId.addEventListener("mouseover",()=>{
+                                buyNowButton.style.display = "block";
+                            });
+                            productId.addEventListener("mouseout",()=>{
+                                buyNowButton.style.display = "none";
+                            });
+                        }
+                    }
+                    //分類頁數
+                    page.innerHTML = "";
+                    for(let i=1;i<=womenMaxPage;i++){
+                        let newPageNum = document.createElement("div");
+                        newPageNum.className = "number";
+                        newPageNum.id = "page"+i.toString();
+                        newPageNum.textContent = i;
+                        page.append(newPageNum);
+                    }
+                    //分類頁數加上連結
+                    for(let i=1;i<=womenMaxPage;i++){
+                        let pageNum = document.getElementById("page"+i.toString());
+                        pageNum.addEventListener("click",()=>{
+                            part.innerHTML = "";
+                            pageNum.style.backgroundColor = "darkblue";
+                            pageNum.style.color = "white";
+                            
+                            //劃出頁面商品
+                            part.innerHTML = "";
+                            let typeUrl = "/api/itemtype/"+i+"?gender=man&type="+type;
+                            fetch(typeUrl).then(res=>res.json()).then((jsonData)=>{
+                                if(jsonData != null){
+                                    womenMaxPage = jsonData["maxpage"];
+                                    let part = document.querySelector(".part");
+                                    for(let i=0;i<jsonData["data"].length;i++){
+                                        let item = document.createElement("div");
+                                        item.className = "item";
+                                        item.id = "item"+i.toString();
+                                        let link = document.createElement("a");
+                                        link.href = "/item?id="+jsonData["data"][i]["id"];
+                                        let image = document.createElement("img");
+                                        image.src = jsonData["data"][i]["image"];
+                                        let itemName = document.createElement("p");
+                                        itemName.className = "item-name";
+                                        itemName.id = "item"+i.toString();
+                                        itemName.textContent = jsonData["data"][i]["name"];
+                                        let price = document.createElement("p");
+                                        price.className = "price";
+                                        price.id = "price"+i.toString();
+                                        price.textContent = jsonData["data"][i]["price"];
+                                        let buyNow = document.createElement("div");
+                                        buyNow.className = "buy-now";
+                                        buyNow.id = "buyNow"+i.toString();
+                                        buyNow.textContent = "立即購買";
+                                        link.append(image);
+                                        item.append(link);
+                                        item.append(itemName);
+                                        item.append(price);
+                                        item.append(buyNow);
+                                        part.append(item);
+                                    }
+                                    //商品進滑出效果
+                                    if(part != ""){
+                                        let startItem = 0;
+                                        let endItem = 11;
+                                        if(result["data"].length < 12){
+                                            endItem = result["data"].length;
+                                        }
+                                        for(let i=0;i<endItem;i++){
+                                            let productId = document.getElementById("item"+i.toString());
+                                            let buyNowButton = document.getElementById("buyNow"+i.toString());
+                                            productId.addEventListener("mouseover",()=>{
+                                                buyNowButton.style.display = "block";
+                                            });
+                                            productId.addEventListener("mouseout",()=>{
+                                                buyNowButton.style.display = "none";
+                                            });
+                                        }
+                                    }
+                                }
+                            });
+                            //更新當前頁數標記
+                            for(let j=1;j<=womenMaxPage;j++){
+                                if(i != j){
+                                    let canclePage = document.getElementById("page"+j.toString());
+                                    canclePage.style.backgroundColor = "white";
+                                    canclePage.style.color = "black";
+                                }
+                            }
+                        });
+                        
+                    }
+                }
+            });
+        }
     });
+    
     //女士專區
     let women = document.querySelector(".women");
     labelmouse(women);
@@ -220,38 +405,59 @@ function label(){
     let womenFlagPressed = null;
     let womenMaxPage = null;
     women.addEventListener("click",()=>{
-        //將分類標籤換為補給品
-        document.querySelector(".shirt").style.display = "initial";
-        document.querySelector(".jacket").style.display = "initial";
-        document.querySelector(".pant").style.display = "initial";
-        document.querySelector(".cap").style.display = "initial";
-        document.querySelector(".other").style.display = "initial";
-        document.querySelector(".tryall").style.display = "none";
-        document.querySelector(".mars").style.display = "none";
-        document.querySelector(".myprotein").style.display = "none";
-        document.querySelector(".on").style.display = "none";
-        document.querySelector(".protein-bar").style.display = "none";
         supplyBtnPress = null;
+        menFlagPress = null;
+        // brand = null;
         if(womenFlagPressed == null){
             womenFlagPressed = true;
             part.innerHTML = "";
-            if(womenType == null)allLableClick("longsleeve");
-            for(let i=1;i<=5;i++){
+            //將分類標籤換為補給品
+            let menu = document.querySelector(".menu");
+            menu.innerHTML = "";
+            let shirt = document.createElement("div");
+            shirt.textContent="女士長袖"
+            shirt.className="women-shirt";
+            shirt.id = "part11";
+            let jacket = document.createElement("div");
+            jacket.textContent="女士外套"
+            jacket.className="women-jacket";
+            jacket.id = "part12";
+            let pant = document.createElement("div");
+            pant.textContent="女士長褲"
+            pant.className="women-pant";
+            pant.id = "part13";
+            let cap = document.createElement("div");
+            cap.textContent="女士帽子"
+            cap.className="women-cap";
+            cap.id = "part14";
+            let other = document.createElement("div");
+            other.textContent="女士訓練鞋"
+            other.className="women-shoes";
+            other.id = "part15";
+            menu.append(shirt);
+            menu.append(jacket);
+            menu.append(pant);
+            menu.append(cap);
+            menu.append(other);
+            for(let i=11;i<=15;i++){
                 let allLabel = document.getElementById("part"+i.toString());
                 allLabel.addEventListener("click",()=>{
-                    if(i == 1)womenType = "longsleeve";
-                    else if(i == 2)womenType = "jacket";
-                    else if(i == 3)womenType = "pants";
-                    else if(i == 4)womenType = "cap";
-                    else if(i == 5)womenType = "shoes";
+                    if(i == 11)womenType = "longsleeve";
+                    else if(i == 12)womenType = "jacket";
+                    else if(i == 13)womenType = "pants";
+                    else if(i == 14)womenType = "cap";
+                    else if(i == 15)womenType = "shoes";
                     allLableClick(womenType);
+                    // console.log(womenType);
+                    womenType = null;
                 });
             }
+            if(womenType == null)allLableClick("longsleeve");
+            womenType = null;
         }
-        function allLableClick(type){
+        function allLableClick(type){   //men&women create page function
             part.innerHTML = "";
-            let womenPage = 1;
-            let url = "/api/itemtype/"+womenPage+"?gender=girl&type="+type;
+            let url = "/api/itemtype/1?gender=girl&type="+type;
             fetch(url).then((res)=>res.json()).then((result)=>{
                 if(result["error"] == null){
                     womenMaxPage = result["maxpage"];
@@ -393,26 +599,45 @@ function label(){
     let brand = null;
     let supplyBtnPress = null;
     labelmouse(supply);
-    supply.addEventListener("click",()=>{
+    supply.addEventListener("click",()=>{ 
         womenFlagPressed = null;
+        menFlagPress = null;
+        // menFlagPress = null;
         if(supplyBtnPress == null){
             supplyBtnPress = true;
+            part.innerHTML = "";
             if(brand == null){      //預設載入tryall
-                part.innerHTML = "";
                 newDepartItem("tryall");
             }  
             //將分類標籤換為補給品
-            document.querySelector(".shirt").style.display = "none";
-            document.querySelector(".jacket").style.display = "none";
-            document.querySelector(".pant").style.display = "none";
-            document.querySelector(".cap").style.display = "none";
-            document.querySelector(".other").style.display = "none";
-            document.querySelector(".tryall").style.display = "initial";
-            document.querySelector(".mars").style.display = "initial";
-            document.querySelector(".myprotein").style.display = "initial";
-            document.querySelector(".on").style.display = "initial";
-            document.querySelector(".protein-bar").style.display = "initial";
-            
+            let menu = document.querySelector(".menu");
+            menu.innerHTML = "";
+            let tryall = document.createElement("div");
+            tryall.textContent="Tryall";
+            tryall.className="tryall";
+            tryall.id = "part6";
+            let mars = document.createElement("div");
+            mars.textContent="Mars";
+            mars.className="mars";
+            mars.id = "part7";
+            let myprotein = document.createElement("div");
+            myprotein.textContent="Myprotein";
+            myprotein.className="myprotein";
+            myprotein.id = "part8";
+            let on = document.createElement("div");
+            on.textContent="Optimum Nutrition";
+            on.className="on";
+            on.id = "part9";
+            let proteinBar = document.createElement("div");
+            proteinBar.textContent="Protein Bar";
+            proteinBar.className="protein-bar";
+            proteinBar.id = "part10";
+            menu.append(tryall);
+            menu.append(mars);
+            menu.append(myprotein);
+            menu.append(on);
+            menu.append(proteinBar);
+
             for(let i=6;i<=10;i++){
                 let partClothes = document.getElementById("part"+i.toString());
                 partClothes.addEventListener("click",()=>{
@@ -428,6 +653,8 @@ function label(){
                         brand = "all";
                     }
                     newDepartItem(brand);
+                    brand = null;
+                    console.log(brand);
                 });
             }
             page.innerHTML = "";
@@ -543,7 +770,7 @@ function label(){
                 }
             });
         }
-    })
+    });
     //分類標籤記號
     function labelmouse(p){
         p.addEventListener("mouseover",()=>{

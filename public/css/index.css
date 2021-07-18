@@ -166,6 +166,7 @@ nav>.menber{
     background-color: rgb(214, 214, 214);
     /* display: none; */
 }
+/*Men*/
 .menu>.shirt{
     flex: none;
     width:250px;
@@ -193,16 +194,7 @@ nav>.menber{
     cursor:pointer;
     background-color: rgb(214, 214, 214);
 }
-.menu>.cap{
-    flex: none;
-    width:250px;
-    padding:10px;
-    font-weight: 700;
-    color: rgb(94, 91, 91);
-    cursor:pointer;
-    background-color: rgb(214, 214, 214);
-}
-.menu>.other{
+.menu>.shoes{
     flex: none;
     width:250px;
     padding:10px;
@@ -212,6 +204,53 @@ nav>.menber{
     background-color: rgb(214, 214, 214);
 }
 
+/*women*/
+.menu>.women-shirt{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.women-jacket{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.women-pant{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.women-cap{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+.menu>.women-shoes{
+    flex: none;
+    width:250px;
+    padding:10px;
+    font-weight: 700;
+    color: rgb(94, 91, 91);
+    cursor:pointer;
+    background-color: rgb(214, 214, 214);
+}
+/*Supply*/
 .menu>.tryall{
     flex: none;
     width:250px;
@@ -220,7 +259,6 @@ nav>.menber{
     color: rgb(94, 91, 91);
     cursor:pointer;
     background-color: rgb(214, 214, 214);
-    display: none;
 }
 .menu>.mars{
     flex: none;
@@ -230,7 +268,6 @@ nav>.menber{
     color: rgb(94, 91, 91);
     cursor:pointer;
     background-color: rgb(214, 214, 214);
-    display: none;
 }
 .menu>.myprotein{
     flex: none;
@@ -240,7 +277,6 @@ nav>.menber{
     color: rgb(94, 91, 91);
     cursor:pointer;
     background-color: rgb(214, 214, 214);
-    display: none;
 }
 .menu>.on{
     flex: none;
@@ -250,7 +286,6 @@ nav>.menber{
     color: rgb(94, 91, 91);
     cursor:pointer;
     background-color: rgb(214, 214, 214);
-    display: none;
 }
 .menu>.protein-bar{
     flex: none;
@@ -260,7 +295,6 @@ nav>.menber{
     color: rgb(94, 91, 91);
     cursor:pointer;
     background-color: rgb(214, 214, 214);
-    display: none;
 }
 
 
