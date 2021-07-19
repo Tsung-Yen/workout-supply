@@ -1,4 +1,3 @@
-const e = require("express");
 let express = require("express");
 //連接mysql DB
 let mysql = require("mysql");
@@ -14,6 +13,8 @@ let app = express();
 app.use(express.static("public"));
 app.use(express.static('files'));
 app.use('/static', express.static('public'));
+
+// app.use(express.json()); 
 
 app.get("/",(req,res)=>{
     res.render('index');
@@ -423,6 +424,27 @@ app.get("/api/searchbar",(req,res)=>{
             res.send(jsonData);
         }
     });
+});
+
+app.use(require('body-parser').json());
+app.post("/signup",(req,res)=>{
+    if(req.method == "POST"){
+        let name = req.body["name"];
+        let account = req.body["account"];
+        let password = req.body["password"];
+        if(name && account && password){
+            let sql = "insert into menbersystem (username,email,password,image) values("+name+","+account+","+password+","+" "+")";
+            pool.query(sql,(err,result,fields)=>{
+                if(err) throw err;
+            });
+            
+        }
+        res.send({
+            "ok":true,
+            "message":"success"
+        });
+    }
+    
 });
 app.listen(3000,function(){
     console.log("Server Started");

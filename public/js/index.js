@@ -771,15 +771,6 @@ function label(){
             });
         }
     });
-    //分類標籤記號
-    function labelmouse(p){
-        p.addEventListener("mouseover",()=>{
-            p.style.color = "darkblue";
-        });
-        p.addEventListener("mouseout",()=>{
-            p.style.color = "rgb(94, 91, 91)";
-        });
-    }
 }
 //主頁關鍵字搜尋功能
 let maxPage = null;
@@ -970,8 +961,6 @@ function searchBar(){
         
     }
 }
-
-
 //串接單一商品連結頁面
 function singleProduct(){
     if(part != ""){
@@ -1005,12 +994,96 @@ function singleProduct(){
     
 }
 
+//會員系統
+function menberSystem(){
+    let sign = document.getElementById("signing");
+    labelmouse(sign);
+    //顯示登入頁面
+    sign.addEventListener("click",()=>{
+        popUpFormAppear = true;
+        let signInPopup = document.querySelector(".popup_form");
+        signInPopup.style.display = "block";
+        let signInCancle = document.getElementById("signin_cancle");
+        cancleForm(signInCancle,signInPopup);
+
+        let signInResult = document.getElementById("signin_result");
+        signInResult.addEventListener("click",()=>{
+            let signUpPopup = document.querySelector(".popup_signup_form");
+            signInPopup.style.display = "none";
+            signUpPopup.style.display = "block";
+            let signUpResult = document.getElementById("signup_result");
+            signUpResult.addEventListener("click",()=>{
+                signUpPopup.style.display = "none";
+                signInPopup.style.display = "block";
+            });
+            let signupCancle = document.getElementById("signup_cancle");
+            cancleForm(signupCancle,signUpPopup);
+        });
+    });
+    
+    //登入會員
+    let signInForm = document.getElementById("signin_form");
+    signInForm.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        alert("uu");
+    });
+    
+    //註冊會員
+    let signUpForm = document.getElementById("signup_form");
+    signUpForm.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        let name = document.getElementById("signup_name").value;
+        let account = document.getElementById("signup_email").value;
+        let password = document.getElementById("signup_password").value;
+        let data = {
+            "name":name,
+            "account":account,
+            "password":password
+        }
+        fetch("/signup",{
+            method:"POST",headers:{
+                "Content-Type":"application/json"
+            },body:JSON.stringify(data)
+        }).then((res)=>res.json())
+        .catch((err)=>console.error("Error",err))
+        .then((result)=>{
+            console.log(result);
+        });
+    });
+        
+
+    
+        
+    function cancleForm(cancleButton,form){
+        popUpFormAppear = false;
+        cancleButton.addEventListener("click",()=>{
+            form.style.display = "none";
+        });
+    } 
+}
+//購物車系統
+function shoppingCartSystem(){
+    let cart = document.querySelector(".cart-image");
+    cart.addEventListener("click",()=>{
+        alert("cart");
+    });
+}
+//分類標籤記號(mouseover,mouseout flag)
+function labelmouse(p){
+    p.addEventListener("mouseover",()=>{
+        p.style.color = "darkblue";
+    });
+    p.addEventListener("mouseout",()=>{
+        p.style.color = "rgb(94, 91, 91)";
+    });
+}
 
 function init(){
     searchItem(1);
     searchBar();
-    // PageSpot();
-    // currentPage();
+    menberSystem();
+    shoppingCartSystem();
+
     defaultLoad(1);
     firstPage(pageStart,pageEnd);
 }

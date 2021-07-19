@@ -125,6 +125,7 @@ nav>.menber{
     font-size: 20px;
     text-indent: 26%;
     font-weight: 700;
+    cursor:pointer;
     /* background-color: chocolate; */
     
 }
@@ -134,6 +135,7 @@ nav>.menber{
     text-indent: 26%;
     font-weight: 700;
     margin-left: 20px;
+    cursor:pointer;
     /* background-color: rgb(91, 190, 104); */
 }
 .hr{
@@ -142,6 +144,168 @@ nav>.menber{
     position:sticky;
     background: rgb(155, 154, 154);
 }
+/*彈出視窗*/
+.popup_form{
+    z-index: 999;
+    display:none;
+    margin:23px 40%;
+    position:absolute;
+    width:340px;
+    height:275px;
+    text-align: center;
+    border-radius: 0.5em;
+    border:solid;
+    border-width:1.5px;
+    border-color: rgb(196, 189, 189);
+    background: rgb(255, 255, 255);
+}
+.popup_form>.title{
+    display:flex;
+    margin-bottom: -10px;
+}
+.title>.sign_title{
+    flex:auto;
+    color:rgb(77, 70, 70);
+    font-size: 25px;
+    font-weight: 400;
+}
+.title>.cancle:after{
+    position:absolute;
+    content:"\d7";
+    font-size:26px;
+    font-weight:bold;
+    top:18px;
+    left:88%;
+    cursor:pointer;
+    border-radius: 0.5em;
+    color:rgb(150, 138, 138);
+}
+form>.account{
+    width:90%;
+    height:38px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    border-color: rgb(150, 142, 142);
+    border-style: solid;
+    border-width: 1.5px;
+}
+form>.pw{
+    width:90%;
+    height:38px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    border-color: rgb(150, 142, 142);
+    border-style: solid;
+    border-width: 1.5px;
+}
+form>.btn{
+    cursor:pointer;
+    width:92%;
+    height:42px;
+    font-size: 19px;
+    color:white;
+    border-style: none;
+    border-radius: 0.3em;
+    background: rgba(68, 136, 153, 1);
+}
+.popup_form>.sign_in{
+    width:90%;
+    height:38px;
+    color:rgb(128, 118, 118);
+    font-size: 17px;
+    margin-left:22px;
+    line-height: 8px;
+    cursor:pointer;
+}
+/*彈出視窗註冊視窗*/
+.popup_signup_form{
+    z-index: 999;
+    display:none;
+    margin:23px 40%;
+    position:absolute;
+    width:340px;
+    height:320px;
+    text-align: center;
+    border-radius: 0.5em;
+    border:solid;
+    border-width:1.5px;
+    border-color: rgb(196, 189, 189);
+    background: rgb(255, 255, 255);
+}
+.popup_signup_form>.title{
+    display:flex;
+    margin-bottom: -10px;
+}
+.title>.sign_title{
+    flex:auto;
+    color:rgb(77, 70, 70);
+    font-size: 25px;
+    font-weight: 400;
+}
+.title>.cancle:after{
+    position:absolute;
+    content:"\d7";
+    font-size:26px;
+    font-weight:bold;
+    top:18px;
+    left:88%;
+    cursor:pointer;
+    border-radius: 0.5em;
+    color:rgb(150, 138, 138);
+}
+form>.name{
+    width:90%;
+    height:38px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    border-color: rgb(150, 142, 142);
+    border-style: solid;
+    border-width: 1.5px;
+}
+form>.account{
+    width:90%;
+    height:38px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    border-color: rgb(150, 142, 142);
+    border-style: solid;
+    border-width: 1.5px;
+}
+form>.pw{
+    width:90%;
+    height:38px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 0.3em;
+    border-color: rgb(150, 142, 142);
+    border-style: solid;
+    border-width: 1.5px;
+}
+form>.signup_btn{
+    cursor:pointer;
+    width:92%;
+    height:42px;
+    font-size: 19px;
+    color:white;
+    border-style: none;
+    border-radius: 0.3em;
+    background: rgba(68, 136, 153, 1);
+}
+.popup_signup_form>.sign_up{
+    width:90%;
+    height:38px;
+    color:rgb(128, 118, 118);
+    font-size: 17px;
+    margin-left:22px;
+    line-height: 8px;
+    cursor:pointer;
+}
+
+
 
 .advertise{
     display: flex;

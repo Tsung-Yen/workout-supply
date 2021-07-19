@@ -43,6 +43,31 @@
             
         </nav>
         <div class="hr"></div>
+        <div class="popup_form">
+            <div class="title">
+                <p class="sign_title">登入會員帳號</p>
+                <p class="cancle" id="signin_cancle"></p>
+            </div>
+            <form id="signin_form" method="PATCH">
+                <input class="account" id="signin_email" type="text" placeholder="請輸入電子信箱" required="required">
+                <input class="pw" id="signin_pw" type="password" placeholder="輸入密碼" required="required">
+                <input class="btn" type="submit" value="登入帳號">
+            </form>
+            <p class="sign_in" id="signin_result">還沒有帳戶？點此註冊</p>
+        </div>
+        <div class="popup_signup_form">
+            <div class="title">
+                <p class="sign_title">註冊會員帳號</p> 
+                <p class="cancle" id="signup_cancle"></p>
+            </div>
+            <form id="signup_form" method="POST">
+                <input class="name" id="signup_name" type="text" placeholder="輸入姓名" required="required">
+                <input class="account" id="signup_email" type="text" placeholder="輸入電子信箱" required="required">
+                <input class="pw" id="signup_password" type="password" placeholder="輸入密碼" required="required">
+                <input class="signup_btn" type="submit" value="註冊帳號">
+            </form>
+            <p class="sign_up" id="signup_result">已經有帳戶了？點此登入</p>
+        </div>
         <div class="advertise">
             <img src="https://media3.giphy.com/media/fXgv56NxkVDDlDYttZ/giphy.gif?cid=790b76116e83b1da415ec59d7dcbe0af28cb0f7f18583d06&rid=giphy.gif&ct=g">
         </div>
