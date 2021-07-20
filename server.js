@@ -3,11 +3,7 @@ let express = require("express");
 //連接mysql DB
 let mysql = require("mysql");
 let pool = mysql.createPool({
-    connectionLimit : 4,
-    host            : "yan-free-version.cv7r0cgdkgoj.us-east-2.rds.amazonaws.com",
-    user            : "Yanxr",
-    password        : "Bk55687ee1",
-    database        : "workoutsupply"
+ 
 })
 
 let app = express();
